@@ -1,0 +1,268 @@
+.small-container{
+    margin:auto;
+    width:280px;
+    padding: 20px;
+    margin-top:50px;
+    border: 1px solid;
+    border-color: rgba(14, 74, 238, 0.3);
+    border-radius:15px;
+    
+}
+
+
+.container {
+    width:90%;
+    margin:auto;
+    margin-top: 50px;
+}
+body{
+    margin:0px;
+}
+
+h2,h1,h3,p,form, span{
+    font-family: Roboto;
+    overflow-wrap: break-word;
+}
+
+.header{
+    color:white;
+    background-color:rgb(14, 74, 238);
+    padding:3px 60px 3px 30px;
+    display: flex;
+    flex-flow:row wrap;
+    align-items:center;
+} 
+.title{
+    width:90%;
+
+}
+
+.logout-btn{
+   width:10%; 
+   
+}
+
+.profile{
+    display: flex;
+    flex-flow:row wrap;
+    align-items:center;
+
+} 
+
+.pbody{
+    width:80%;
+
+}
+
+.course-container{
+    padding: 10px;
+
+}
+
+/* .coursederails{
+    width:80%;
+    float:left;
+}
+
+.coursebuttons{
+    width:20%;
+    float:left;
+} */
+
+
+
+/* .reset-btn{
+   ; 
+    
+ } */
+
+.alert{
+    color:rgb(235, 22, 65);
+    background-color: rgba(235, 22, 65, 0.2);
+    border: 1px solid;
+    border-color: rgb(235, 22, 65);
+    border-radius:5px;
+    padding: 10px;
+    font-size: 90%
+}
+
+.success{
+    color:rgb(15, 182, 51);
+    background-color: rgba(15, 182, 51, 0.2);
+    border: 1px solid;
+    border-color: rgb(15, 182, 51);
+    border-radius:5px;
+    padding: 10px;
+    font-size: 90%
+}
+
+.message{
+    color:rgb(14, 74, 238);
+    background-color: rgba(14, 74, 238, 0.2);
+    border: 1px solid;
+    border-color: rgb(14, 74, 238);
+    border-radius:5px;
+    padding: 10px;
+    font-size: 90%
+}
+button{
+    cursor:pointer;
+}
+
+.btn-btn{
+
+    margin:15px 0px 15px 0px;
+    font-size: 110%;
+    color:white;
+    padding:10px;
+    background-color:rgb(14, 74, 238);
+    width: 100%;
+    border:0px;
+    border-radius:5px;
+    
+
+}
+
+a{
+    font-weight: 500;
+    color:rgb(14, 74, 238);
+    text-decoration: none;
+}
+
+hr{
+    border: 1px solid;
+    border-color: rgba(14, 74, 238, 0.3);
+}
+.entry{
+    margin-top:20px;
+}
+
+input{
+    width:98%;
+    height:30px;
+    border: 1px solid;
+    border-color: rgba(14, 74, 238, 0.5);
+    border-radius:5px;
+    margin-bottom:10px;
+}
+textarea{
+    width:98%;
+    border: 1px solid;
+    border-color: rgba(14, 74, 238, 0.5);
+    border-radius:5px;
+    margin-bottom:10px;
+    font-family: Roboto;
+    resize:vertical;
+}
+input::placeholder{
+    font-size: 110%;
+}
+
+input:focus-visible {
+    outline:none;
+   border: 2px solid;
+    border-color: rgb(14, 74, 238);
+    border-radius:5px;
+}
+textarea:focus-visible {
+    outline:none;
+   border: 2px solid;
+    border-color: rgb(14, 74, 238);
+    border-radius:5px;
+}
+
+select.input-select {
+    width: 98%;
+    height: 30px;
+    border: 1px solid;
+    border-color: rgba(14, 74, 238, 0.5);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+select.input-select:focus-visible {
+    outline:none;
+   border: 2px solid;
+    border-color: rgb(14, 74, 238);
+    border-radius:5px;
+}
+
+.note {
+    text-align: center;
+}
+
+.welcome{
+    font-size: 180%;
+    color:black;
+    line-height: 0.1;
+}
+
+.subtext{
+    color:rgb(68, 68, 68);
+    line-height: 0.1;
+}
+
+.timestamp{
+    color:rgb(68, 68, 68);
+    font-size: 90%;
+}
+
+
+.logout-btn button{
+    font-size:105%;
+    color:white;
+    background-color: transparent!important;
+   border: 2px solid;
+   border-color: white;
+   border-radius:5px;
+   padding:10px;
+  
+ }
+
+ .reset-btn button {
+    font-size: 105%;
+    color:white;
+    background-color: rgb(235, 22, 65);
+   border-radius:5px;
+   padding:10px;
+   border:none;
+ }
+
+ .create-btn button {
+    font-size: 105%;
+    color:white;
+    background-color: rgb(15, 182, 51);
+   border-radius:5px;
+   padding:10px 5px 10px 5px;
+   border:none;
+   /* margin:auto; */
+   width:200px;
+ }
+
+ .title a{
+     color:white;
+ }
+
+
+/* input.descmessage {
+    height:50px;
+} */
+
+input.descmessage::placeholder{
+    vertical-align: top;
+}
+
+.center{
+    width: max-content;
+    margin:auto;
+    text-align: center;
+}
+.crud-btn button {
+    font-size: 105%;
+    color:white;
+   border-radius:5px;
+   padding:10px 5px 10px 5px;
+   border:none;
+   width:100px;
+   margin:5px 5px 5px 5px;
+ }
