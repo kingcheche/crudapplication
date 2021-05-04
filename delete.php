@@ -32,8 +32,8 @@ if(!isset($_SESSION["username"])) {
 if(!isset($_GET["delete"])) {
   echo "<div style='margin-top:100px'>";
   echo "<p class='alert center'> No course chosen, go to the homepage and choose a course to delete";
-  echo" <form action='index.php' method='POST' class='crud-btn center' >
-          <button name='home' style='background-color:rgb(14, 74, 238);'> Home </button> </form>";
+  echo" <form action='index.php' method='POST' class='create-btn center' >
+          <button name='home'> Home </button> </form>";
           echo "</div>";
           exit();
 } 
@@ -70,11 +70,11 @@ echo "<h3 style='display:inline'> Course description:</h3> <span> $desc </span> 
 
   echo "<form name='delete' action='includes/crud-functions.php' method='POST'>
   <input type='hidden' name='delete-id' value='$courseid'>
-  <button type='submit' name='delete-submit' style='background-color:rgb(235, 22, 65);' class='btn-btn'> Delete </button>
+  <button type='submit' name='delete-submit' class='btn-btn'> Delete </button>
 </form>";
 
-  echo "<form name='cancel' action='index.php' method='POST'>
-  <button type='submit' name='cancel' class='btn-btn' style='margin-top:0px;'> Cancel </button>
+  echo "<form name='cancel'  action='read.php?view=$courseid' method='POST'>
+  <button type='submit' name='cancel' class='btn-btn' style='margin-top:0px; background-color:rgb(235, 22, 65)'> Cancel </button>
 </form>";
 
   ?>

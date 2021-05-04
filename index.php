@@ -64,71 +64,67 @@ if(!isset($_SESSION["username"])) {
       <button name="create" > Create Course </button>
 </form>
 </div>
+        </br>
+       <h1 class='center'> All courses </h1>";
+       </br>
 
-</br>
-<h1 class="center"> Latest courses </h1>
-</br>
-<div>
+<div class="row">
     <!-- Show the latest course, from latest to oldest -->
     <?php 
-    $sql = "SELECT * FROM courses ORDER BY courseid DESC LIMIT 4";
-    if($result = mysqli_query($conn, $sql)){
-        if(mysqli_num_rows($result) > 0){
-            while($row = mysqli_fetch_array($result)){
-    
-                $coursename = $row["coursename"];
-                $creator = $row["creator"];
-                $time = $row["timecreated"];
-                $section = $row["coursesection"];
-                $desc = $row["coursedesc"];
-                $courseid= $row["courseid"];
 
-              echo "<div class='course-container'>";
-              echo "<div style='width:80%; float:left'>";
-                echo "<h2 style='color:black';> $coursename</h2>";
-                echo "<p class='subtext message' style='width:max-content; color:rgb(14, 74, 238)';> <span> Course section:$section </span>"."</br>";
-                echo "<p> $desc </p>";
-                echo "<p class='timestamp'> <span> Created by $creator @ $time </span> </p>";
-                echo "</div>";
+            $sql = "SELECT * FROM courses ORDER BY courseid DESC";
+            if($result = mysqli_query($conn, $sql)){
+                if(mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_array($result)){
+            
+                        $coursename = $row["coursename"];
+                        $creator = $row["creator"];
+                        $time = $row["timecreated"];
+                        $section = $row["coursesection"];
+                        $desc = $row["coursedesc"];
+                        $courseid= $row["courseid"];
                 
-                
-                //Show edit button only if the user logged in is the creator of the course
-                if($_SESSION["username"] === $creator) {
-                echo "<div style='width:20%; float:right'>";
-                echo "<div class='profile'>";
-
-               echo" <form action='update.php?edit=$courseid' method='POST' class='crud-btn' >
-          <button name='edit' style='background-color:rgb(14, 74, 238);'> Edit </button> </form>
-          <form action='delete.php?delete=$courseid' method='POST' class='crud-btn' >
-          <button name='delete' style='background-color:rgb(235, 22, 65);'> Delete </button> </form>";
-          echo "</div>";
-          echo "</div>";
-                }
-          echo "</div>";
-          echo "<div >";
-          echo "</br>" ."<hr style='width:100%'>" ."</br>";
-          echo "<div>";  
+                        echo "<div class='column'>";
+                      echo "<div class='column-container'>";
+                    //   echo "<div style='width:80%; float:left'>";
+                        echo "<h2 class='entrytext'> $coursename</h2>";
+                        echo "<p class='subtext message' style='width:max-content; color:rgb(14, 74, 238)';> <span> Course section:$section </span>"."</br>";
+                        echo "<p class='entrytext'> $desc </p>";
+                        echo "<p class='timestamp'> <span> Tutor: @$creator || on - $time </span> </p>";
+                        // echo "</div>";
+                        
+                        
+                        //Show edit button only if the user logged in is the creator of the course
+                        // echo "<div style='width:20%; float:right'>";
+                        // echo "<div class='profile'>";
         
+                       echo" <form action='read.php?view=$courseid' method='POST' class='create-btn' >
+                  <button name='edit' style='background-color:rgb(14, 74, 238);'> About course </button> </form>";
+                //   echo "</div>";
+                //   echo "</div>";
+                        
+                  echo "</div>";
+                  echo "</div>";
+                 
                 
+                        
+                    }
+                    // Free result set
+                    mysqli_free_result($result);
+                } else{
+                    echo "<p class='center alert'> No course available. Create a course.</p>" ."</br";
+                }
+            } else {
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
             }
-            // Free result set
-            mysqli_free_result($result);
-        } else{
-            echo "<p class='center alert'> No course available. Create a course.</p>" ."</br";
-        }
-    } else {
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-    }
-    // Close connection
-    mysqli_close($conn);
-    ?>
+            // Close connection
+            mysqli_close($conn);
+            exit();
 
-</div>
-<div class="center">
-<form action="read.php" class="create-btn" method="POST">
-      <button name="read" style="background-color:rgb(14, 74, 238);" > View all course </button>
-</form>
-</br>
+
+?>
 </div> 
+        </br>
+        </br>
 </body>
 </html>

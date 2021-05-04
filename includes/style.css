@@ -1,6 +1,6 @@
 .small-container{
     margin:auto;
-    width:280px;
+    width:300px;
     padding: 20px;
     margin-top:50px;
     border: 1px solid;
@@ -8,6 +8,49 @@
     border-radius:15px;
     
 }
+
+.column-container{
+    margin:auto;
+    width:300px;
+    padding: 20px;
+    margin-top:50px;
+    border: 1px solid;
+    border-color: rgba(14, 74, 238, 0.3);
+    border-radius:15px;
+    
+}
+
+.column-container:hover{
+    box-shadow: 5px 5px 20px #88888865;
+}
+
+.column {
+    float: left;
+  width: 33.3%;
+}
+
+
+.entrytext {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+ }
+
+ .entryheading {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+ }
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
 
 .container {
@@ -17,6 +60,7 @@
 }
 body{
     margin:0px;
+    margin-bottom: 50px;
 }
 
 h2,h1,h3,p,form, span{
@@ -111,7 +155,7 @@ button{
 
 .btn-btn{
 
-    margin:15px 0px 15px 0px;
+    margin:15px 5px 15px 5px;
     font-size: 110%;
     color:white;
     padding:10px;
@@ -264,5 +308,38 @@ input.descmessage::placeholder{
    padding:10px 5px 10px 5px;
    border:none;
    width:100px;
-   margin:5px 5px 5px 5px;
+   margin:5px;
+
  }
+
+ @media only screen and (max-width: 400px){
+    .column {
+        float: none;
+      width: 100%;
+      margin:auto;
+    }
+
+.column-container{
+    width:auto;
+    
+}
+.alert, .message, .success, .center{
+    width:90%;
+}
+}
+
+@media (max-width:1024px) and (min-width:400px){
+    .column {
+        float: left;
+      width: 50%;
+      margin:auto;
+    }
+
+.column-container{
+    width:auto;
+    margin:10px;
+}
+    
+}
+
+

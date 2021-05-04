@@ -1,4 +1,4 @@
-<?php if(session_status() === PHP_SESSION_NONE) session_start();?>
+<?php session_start() ?>
 <?php include_once "includes/mysql-conn.php" ?>
 <?php
  //Make sure only logged in users can access this page if not, send them to reg page
@@ -6,6 +6,7 @@ if(!isset($_SESSION["username"])) {
     header ("location:index.php");
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@ if(!isset($_SESSION["username"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="includes/style.css" >
-    <title>View All Course</title>
+    <title>View Course</title>
 </head>
 <body>
 
@@ -24,71 +25,74 @@ if(!isset($_SESSION["username"])) {
     <button name="logout" class:> Logout </button>
 </form>
 </div>
-<div class="container">
-</br>
-<h1 class="center">All Courses </h1>
-</br>
- <!-- Show all the course, from latest to oldest -->
- <?php 
-    $sql = "SELECT * FROM courses ORDER BY courseid DESC";
+
+<?php
+
+//Make sure, users only access this page by clicking a delete button or show an error message
+if(!isset($_GET["view"]) && !isset($_GET["delete-submit"]) && !isset($_GET["edit-submit"]) ) {
+  echo "<div style='margin-top:100px'>";
+  echo "<p class='alert center'> No course chosen, go to the homepage and choose a course to view";
+  echo" <form action='index.php' method='POST' class='create-btn center' >
+          <button name='home' style='margin:10px;'> Home </button> </form>";
+          echo "</div>";
+          exit();
+} 
+
+if(!isset($_GET["view"])){
+    $courseid=$_GET["view"]; {
+echo "<p class=alert> This is not working";
+exit();
+    }
+}
+
+?>
+<?php
+//Check the id of the edit 
+if(isset($_GET["view"])){
+  $courseid=$_GET["view"];
+
+//Get the important details to display in the edit form
+  $sql = "SELECT * FROM courses WHERE courseid = $courseid;";
     if($result = mysqli_query($conn, $sql)){
-        if(mysqli_num_rows($result) > 0){
-            while($row = mysqli_fetch_array($result)){
-    
+      $row = mysqli_fetch_array($result);
+
                 $coursename = $row["coursename"];
                 $creator = $row["creator"];
                 $time = $row["timecreated"];
                 $section = $row["coursesection"];
                 $desc = $row["coursedesc"];
                 $courseid= $row["courseid"];
+}
+}
+?>
+    <div class="small-container">
+    <h2> View Course </h2>
+    <hr> 
 
-              echo "<div class='course-container'>";
-              echo "<div style='width:80%; float:left'>";
-                echo "<h2 style='color:black';> $coursename</h2>";
-                echo "<p class='subtext message' style='width:max-content; color:rgb(14, 74, 238)';> <span> Course section:$section </span>"."</br>";
-                echo "<p> $desc </p>";
-                echo "<p class='timestamp'> <span> Created by $creator @ $time </span> </p>";
-                echo "</div>";
-                
-                
-                //Show edit button only if the user logged in is the creator of the course
-                if($_SESSION["username"] === $creator) {
-                echo "<div style='width:20%; float:right'>";
-                echo "<div class='profile'>";
+  <?php
 
-               echo" <form action='update.php?edit=$courseid' method='POST' class='crud-btn' >
-          <button name='edit' style='background-color:rgb(14, 74, 238);'> Edit </button> </form>
-          <form action='delete.php?delete=$courseid' method='POST' class='crud-btn' >
-          <button name='delete' style='background-color:rgb(235, 22, 65);'> Delete </button> </form>";
-          echo "</div>";
-          echo "</div>";
-                }
-          echo "</div>";
-          echo "<div >";
-          echo "</br>" ."<hr style='width:100%'>" ."</br>";
-          echo "<div>";  
-        
-                
-            }
-            // Free result set
-            mysqli_free_result($result);
-        } else{
-            echo "<p class='center alert'> No course available. Create a course.</p>" ."</br";
-        }
-    } else {
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-    }
-    // Close connection
-    mysqli_close($conn);
-    ?>
+echo "<h3 style='display:inline'> Course name:</h3> <span> $coursename </span> </br></br>";
+echo "<h3 style='display:inline'> Course Section:</h3> <span class='message' style='padding:0px 5px 0px 5px'> $section</span> </br></br>";
+echo "<h3 style='display:inline'> Course description:</h3> <span> $desc </span> </br>";
 
-</div>
+if($_SESSION["username"] !== $creator) {
+    echo "<p class='alert'> You can only edit a course you created</p>";
+} else {
+echo "<div class='profile'>";
+  echo "<form name='edit' action='update.php?edit=$courseid' method='POST' class='crud-btn' style='width:50%;'>
+  <button type='submit' name='edit-submit' style='background-color:rgb(14, 74, 238); width:98% ' > Edit </button>
+</form>";
 
-<div class="center">
-<form action="index.php" class="create-btn" method="POST">
-      <button name="read" style="background-color:rgb(14, 74, 238);" > Go back home </button>
+  echo "<form name='delete' action='delete.php?delete=$courseid' method='POST' class='crud-btn'  style='width:50%'>
+  <button type='submit' name='delete'  style='background-color:rgb(235, 22, 65); width:98%'> Delete </button>
+</form>";
+echo "</div>";
+}
+  ?>
+
+ <form name='edit' action='index.php' method='POST' class='create-btn' >
+  <button type='submit' name='edit-submit' style='width:100%' > Go back </button>
 </form>
-</br>
 
 </body>
 </html>
