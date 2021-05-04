@@ -32,8 +32,8 @@ if(!isset($_SESSION["username"])) {
 if(!isset($_GET["edit"])) {
   echo "<div style='margin-top:100px'>";
   echo "<p class='alert center'> No course chosen, go to the homepage and choose a course to edit";
-  echo" <form action='index.php' method='POST' class='crud-btn center' >
-          <button name='home' style='background-color:rgb(14, 74, 238);'> Home </button> </form>";
+  echo" <form action='index.php' method='POST' class='create-btn center' >
+          <button name='home'> Home </button> </form>";
           echo "</div>";
           exit();
 } 
@@ -90,7 +90,7 @@ if(isset($_GET["edit"])){
     <button type='submit' name='update-submit' class='btn-btn'> Update </button>
        
   </form> ";
-  echo "<form name='cancel' action='index.php' method='POST'>
+  echo "<form name='cancel' action='read.php?view=$courseid' method='POST'>
   <button type='submit' name='cancel' class='btn-btn' style='background-color:rgb(235, 22, 65); margin-top:0px;'> Cancel </button>
 </form>";
 
