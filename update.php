@@ -51,17 +51,34 @@ if(isset($_GET["edit"])){
                 $coursename = $row["coursename"];
                 $desc = $row["coursedesc"];
                 $courseid = $row["courseid"];
+                $creator = $row["creator"];
 
+     // If course doesn't exist (when user try to access course by url) tell them its an invalid url
+    //If i dont do this, it will load the page but show invalid variable error
+ if(!isset($courseid) === TRUE) {
+  header("location:index.php?msg=invalidurl");
+  exit();
+}              
 }
 }
 ?>
 
+<?php
+//make sure only users that created the course see the output of this course
+//One could have easily bypass the view page which is the main access to this page for course creator
+//by just copping the url of a  coure delete page and will be able to delete
+ if($_SESSION["username"] !== $creator ){
+   header("location:read.php?view=$courseid");
+   exist();
+ }
+?>
 
     <div class="small-container">
     <h2> Update course </h2>
     <hr> 
 
     <?php 
+    //Error handling
     if (isset($_GET["msg"])) {
       if ($_GET["msg"] == "stmtfailed")  {
           echo "<p class='alert'> Error Found in input, try again! </p>";

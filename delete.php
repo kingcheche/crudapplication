@@ -45,16 +45,36 @@ if(isset($_GET["delete"])){
 
 //Get the important details to display in the edit form
   $sql = "SELECT * FROM courses WHERE courseid = $courseid;";
+
     if($result = mysqli_query($conn, $sql)){
       $row = mysqli_fetch_array($result);
-    
+
+                $creator = $row["creator"];
                 $coursename = $row["coursename"];
                 $desc = $row["coursedesc"];
                 $courseid = $row["courseid"];
                 $section = $row["coursesection"];
+    } 
+
+    // If course doesn't exist (when user try to access course by url) tell them its an invalid url
+    //If i dont do this, it will load the page but show invalid variable error
+ if(!isset($courseid) === TRUE) {
+      header("location:index.php?msg=invalidurl");
+      exit();
+    }
 
 }
-}
+?>
+
+
+<?php
+//make sure only users that created the course see the output of this course
+//One could have easily bypass the view page which is the main access to this page for course creator
+//by just copping the url of a  coure delete page and will be able to delete
+ if($_SESSION["username"] !== $creator ){
+   header("location:read.php?view=$courseid");
+   exist();
+ }
 ?>
     <div class="small-container">
     <h2> Delete Course </h2>

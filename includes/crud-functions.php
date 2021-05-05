@@ -7,7 +7,7 @@ if(!isset($_POST["create-submit"]) && !isset($_POST["delete-submit"]) && !isset(
     exit();
 } else {
 
-//Function  to create new user if user details is not in database
+//Function  to create new course with prepared statement
 function createcourse($conn, $creator, $name, $section, $desc) {
     $sql ="INSERT INTO courses (creator, coursename, coursesection, coursedesc) VALUES (?, ?, ?, ?);";
     $stmt = mysqli_stmt_init ($conn);
@@ -22,7 +22,7 @@ function createcourse($conn, $creator, $name, $section, $desc) {
     exit();
 }
 
-   //Function to update user course
+   //Function to update user course with prepared statement
    function updatecourse($conn, $updatename, $updatesection, $updatedesc, $updateid)
 {
     $sql = "UPDATE courses SET coursename = ?, coursesection = ?, coursedesc = ? WHERE courseid = ?;";
@@ -39,7 +39,7 @@ function createcourse($conn, $creator, $name, $section, $desc) {
        }
 
 
-       //Function to delete course
+       //Function to delete course with prepared statement
 function deletecourse($conn, $deleteid) {
     $sql = "DELETE FROM courses WHERE courses.courseid = ?;";
     $stmt = mysqli_stmt_init ($conn);
