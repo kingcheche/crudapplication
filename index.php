@@ -69,7 +69,7 @@ if(!isset($_SESSION["username"])) {
 </form>
 </div>
         </br>
-       <h1 class='center'> All courses </h1>";
+       <h1 class='center'> All courses </h1>
        </br>
 
 <div class="row" id="courses">
