@@ -8,7 +8,7 @@ if(!isset($_POST["signup-submit"]) && !isset($_POST["login-submit"]) && !isset($
     exit();
 } else {
     
-    //Function  to check if input email exist in database
+    //Function  to check if input email exist in database with prepared statement
     function emailExist ($conn, $email) {
         $sql = "SELECT * FROM users WHERE email = ?;";
 
@@ -31,7 +31,7 @@ if(!isset($_POST["signup-submit"]) && !isset($_POST["login-submit"]) && !isset($
         mysqli_stmt_close($stmt); 
     }
 
-    //Function  to check if input username exist in database
+    //Function  to check if input username exist in database with prepared statement
     function usernameExist ($conn, $username) {
         $sql = "SELECT * FROM users WHERE username = ?;";
 
@@ -56,7 +56,7 @@ if(!isset($_POST["signup-submit"]) && !isset($_POST["login-submit"]) && !isset($
 
 
 
-//Function  to create new user if user details is not in database
+//Function  to create new user if user details is not in database with prepared statement
     function create($conn, $name, $username, $email, $h_password) {
         $sql ="INSERT INTO users (name, username, email, password) VALUES (?, ?, ?, ?);";
         $stmt = mysqli_stmt_init ($conn);
@@ -101,7 +101,7 @@ if(!isset($_POST["signup-submit"]) && !isset($_POST["login-submit"]) && !isset($
     }
 
 
-    //Function to reset user password once error handling is passed
+    //Function to reset user password once error handling is passed with prepared statement
 function resetpassword($conn, $new_hashedpassword){
     $userid = $_SESSION["id"];
     $sql = "UPDATE users SET password= ? WHERE id= ?;";
@@ -196,7 +196,5 @@ if(isset($_POST["reset-submit"])) {
     }
 }
 }
-
-
-    
+  
 ?> 

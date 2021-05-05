@@ -27,7 +27,7 @@ if(!isset($_SESSION["username"])) {
     <div class="small-container">
     <h2> Create Course </h2>
     <hr>
-
+<!-- Error handling -->
     <?php 
     if (isset($_GET["msg"])) {
       if ($_GET["msg"] == "stmtfailed")  {

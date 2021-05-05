@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2021 at 03:37 PM
+-- Generation Time: May 05, 2021 at 11:52 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -41,10 +41,11 @@ CREATE TABLE `courses` (
 
 INSERT INTO `courses` (`courseid`, `timecreated`, `creator`, `coursename`, `coursesection`, `coursedesc`) VALUES
 (14, '2021-05-03', 'cheche', 'Writing copy', 'UI/UX', 'UX writing is the practice of crafting copy which is directly used in user interfaces to guide users within a product and help them interact with it. The major aim of UX writing is to settle communication between users and a digital product.'),
-(15, '2021-05-03', 'vicky', 'Learning PHP', 'Backend', 'PHP is a general-purpose scripting language especially suited to web development. It was originally created by Danish-Canadian programmer Rasmus Lerdorf in 1994. The PHP reference implementation is now produced by The PHP Group.'),
-(16, '2021-05-03', 'josh2ben', 'Frontend Dev Basic', 'Frontend', 'Although I’m focusing on backend development, working with frontend developers is unavoidable especially when I’m designing the API for frontend developers to use. Therefore, we must acquire some frontend fundamentals, at least.'),
+(16, '2021-05-03', 'vicky', 'Frontend Dev Basic', 'Frontend', 'Although I’m focusing on backend development, working with frontend developers is unavoidable especially when I’m designing the API for frontend developers to use. Therefore, we must acquire some frontend fundamentals, at least.'),
 (18, '2021-05-03', 'akin2d_dele', 'Mobile with Flutter', 'Mobile', 'Flutter is an open-source UI software development kit created by Google. It is used to develop applications for Android, iOS, Linux, Mac, Windows, Google Fuchsia, and the web from a single codebase.'),
-(19, '2021-05-03', 'cheche2', 'Build a Crud Application', 'Backend', 'In computer programming, create, read, update, and delete (CRUD) is a software architectural style regarding the four basic operations of persistent storage. ');
+(19, '2021-05-03', 'josh2ben', 'Build a Crud Application', 'Backend', 'In computer programming, create, read, update, and delete (CRUD) is a software architectural style regarding the four basic operations of persistent storage. '),
+(20, '2021-05-04', 'vicky', 'Update on CourseRep', 'UI/UX', 'This is just a test to see if this is going as planned. I am quite happy about the result Sha, there is still a glitch in the entry CSS for tablet mode, but I don\'t think I will be fixing that, maybe another time sha'),
+(21, '2021-05-04', 'cheche2', 'Zuri Training sofar', 'Backend', 'This has been a very good personal experience, creating web apps from scratch and making sure everything is working, I definitely spent a lot of time on error handling and do so properly, I wonder what score I would get.');
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`) VALUES
 (36, 'Kalu Godswill', 'cheche', 'kalugreymatter@gmail.com', '$2y$10$aLoBApPjuECkhhGqNDF2xeiqrcWOgDcPm5WjtnQQTWV9yuMaBbiwW'),
-(45, 'Victoria', 'vicky', 'vicky@gmail.com', '$2y$10$FsCGK.G3QU0dNmk7xMcegOyrc.i7RPXfF16B3PBdr/rbQgf2QOEya'),
+(45, 'Victoria', 'vicky', 'vicky@gmail.com', '$2y$10$JwXEFKyfb0oKN4f6Mm4Su.scV4pqe2hkfI1b98dvo57Iylmfdlp52'),
 (54, 'Joshua Benjamin', 'josh2ben', 'josh2ben@gmail.com', '$2y$10$Ak7IWERfAre57H1c6LQt2OusELlNum6rWWVMHkx3GLfcLXkc5tJV.'),
 (55, 'Dele Akintude', 'akin2d_dele', 'akin2d_dele@gmail.com', '$2y$10$ulf/fDwBO/EYgs26ml4A/umQPR159BwR5YU3jRwn3ShXO.NSado/a'),
 (56, 'Cheche Kalu', 'cheche2', 'kalugreymatter@hotmail.com', '$2y$10$ZrhXmU9ZVx7L6pAwcFCSA.qO3PKqtooGVW/JI2Incejng48Vi11n.');
@@ -97,7 +98,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `courseid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `courseid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users`

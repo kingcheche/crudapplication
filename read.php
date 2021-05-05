@@ -62,6 +62,13 @@ if(isset($_GET["view"])){
                 $section = $row["coursesection"];
                 $desc = $row["coursedesc"];
                 $courseid= $row["courseid"];
+
+      // If course doesn't exist (when user try to access course by url) tell them its an invalid url
+    //If i dont do this, it will load the page but show invalid variable error
+ if(!isset($courseid) === TRUE) {
+  header("location:index.php?msg=invalidurl");
+  exit();
+}
 }
 }
 ?>
@@ -76,7 +83,7 @@ echo "<h3 style='display:inline'> Course Section:</h3> <span class='message' sty
 echo "<h3 style='display:inline'> Course description:</h3> <span> $desc </span> </br>";
 
 if($_SESSION["username"] !== $creator) {
-    echo "<p class='alert'> You can only edit a course you created</p>";
+    echo "<p class='alert'> This course is view only. You can only edit a course you created</p>";
 } else {
 echo "<div class='profile'>";
   echo "<form name='edit' action='update.php?edit=$courseid' method='POST' class='crud-btn' style='width:50%;'>
@@ -90,7 +97,7 @@ echo "</div>";
 }
   ?>
 
- <form name='edit' action='index.php' method='POST' class='create-btn' >
+ <form name='edit' action='index.php#courses' method='POST' class='create-btn' >
   <button type='submit' name='edit-submit' style='width:100%' > Go back </button>
 </form>
 

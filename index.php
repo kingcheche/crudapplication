@@ -47,6 +47,8 @@ if(!isset($_SESSION["username"])) {
        <hr>
  <div class="center">
 <?php 
+
+// Error handling
     if (isset($_GET["msg"])) {
       if ($_GET["msg"] == "coursecreated")  {
           echo "<p class='success'> New course created successfully </p>";
@@ -54,8 +56,10 @@ if(!isset($_SESSION["username"])) {
         echo "<p class='success'> Course update successfully </p>";
       } else if ($_GET["msg"] == "deletesuccess")  {
         echo "<p class='success'> Course delete successfully </p>";
-      }
+      } else if ($_GET["msg"] == "invalidurl")  {
+        echo "<p class='alert'> Course doesn't exist or invalid url </p>";
   }
+}
   ?>
   </div>
 </br>
@@ -68,7 +72,7 @@ if(!isset($_SESSION["username"])) {
        <h1 class='center'> All courses </h1>";
        </br>
 
-<div class="row">
+<div class="row" id="courses">
     <!-- Show the latest course, from latest to oldest -->
     <?php 
 
@@ -86,23 +90,12 @@ if(!isset($_SESSION["username"])) {
                 
                         echo "<div class='column'>";
                       echo "<div class='column-container'>";
-                    //   echo "<div style='width:80%; float:left'>";
                         echo "<h2 class='entrytext'> $coursename</h2>";
                         echo "<p class='subtext message' style='width:max-content; color:rgb(14, 74, 238)';> <span> Course section:$section </span>"."</br>";
                         echo "<p class='entrytext'> $desc </p>";
                         echo "<p class='timestamp'> <span> Tutor: @$creator || on - $time </span> </p>";
-                        // echo "</div>";
-                        
-                        
-                        //Show edit button only if the user logged in is the creator of the course
-                        // echo "<div style='width:20%; float:right'>";
-                        // echo "<div class='profile'>";
-        
                        echo" <form action='read.php?view=$courseid' method='POST' class='create-btn' >
                   <button name='edit' style='background-color:rgb(14, 74, 238);'> About course </button> </form>";
-                //   echo "</div>";
-                //   echo "</div>";
-                        
                   echo "</div>";
                   echo "</div>";
                  
