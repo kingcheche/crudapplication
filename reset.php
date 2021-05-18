@@ -15,6 +15,8 @@ if(!isset($_SESSION["username"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="includes/style.css" >
+    <script src="includes/js.js"></script>
+
     <title>Reset Password</title>
 </head>
 <body>
@@ -49,10 +51,11 @@ if(!isset($_SESSION["username"])) {
 
   <form name="reset" action="includes/functions.php" method="POST" class="entry">
 
-    <input type="password" name="old_password" placeholder="Old Password" required maxlength="15"></br>
+    <input type="password" name="old_password" placeholder="Old Password" id="pwd" required maxlength="15"></br>
+    <span class="togglepwd" id="togglepwd" onclick="myFunction()"> Show </span> </br>
 
-    <input type="password" name="new_password" placeholder="New Password" required> </br>
-
+    <input type="password" name="new_password" placeholder="New Password"  id="rpwd"  required> </br>
+    <span class="togglepwd" id="togglepwd2" onclick="mySwitch()"> Show </span> </br>
   
     <input type="password" name="conf_password" placeholder="Confirm Password" required> </br>
 
