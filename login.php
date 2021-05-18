@@ -39,7 +39,7 @@
 
     <input type="email" name="l-email" placeholder="Email" required> </br>
 
-    <input type="password" name="l-password" placeholder="Password" id="pwd" required> <span class="togglepwd" id="togglepwd" onclick="myFunction()"> Show </span> </br>
+    <input type="password" name="l-password" placeholder="Password" id="pwd" required> <span class="togglepwd" id="togglepwd" onclick="myFunction()" > Show </span> </br>
 
     <button type="submit" name="login-submit"class="btn-btn"> Login </button>
        

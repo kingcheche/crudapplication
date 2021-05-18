@@ -41,7 +41,7 @@
     <input type="email" name="email" placeholder="Email" required> </br>
 
     <input type="password" name="password" placeholder="Password" id="pwd" required> 
-    <span class="togglepwd" id="togglepwd" onclick="myFunction()"> Show </span> </br>
+    <span class="togglepwd" id="togglepwd" onclick="myFunction()" > Show </span> </br>
 
 
     <button type="submit" name="signup-submit" class="btn-btn"> Sign up </button>

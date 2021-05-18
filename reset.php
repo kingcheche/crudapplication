@@ -59,7 +59,7 @@ if(!isset($_SESSION["username"])) {
   
     <input type="password" name="conf_password" placeholder="Confirm Password" required> </br>
 
-    <button type="submit" name="reset-submit" class="btn-btn"> Reset </button>
+    <button type="submit"  name="reset-submit" class="btn-btn"> Reset </button>
        
   </form>
   <form name="cancel" action="index.php" method="POST">

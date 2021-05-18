@@ -20,7 +20,7 @@ function mySwitch() {
     var y = document.getElementById ("togglepwd2");
 
     if (x.type === "password" ) {
-        x.type = "text";
+        x.type = "text" ; 
         y.innerText = "Hide";
     } else {
         x.type = "password";

@@ -353,7 +353,7 @@ input.descmessage::placeholder{
    text-align: center;
    cursor: pointer;
    position: relative;
-   z-index:2;
+   z-index:2; 
    margin-top: -43px;
   border-top-right-radius:5px ;
   border-bottom-right-radius:5px ;
