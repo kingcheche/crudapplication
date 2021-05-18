@@ -48,6 +48,6 @@
        
   </form>
 
-<p class="note"> Already have an account? <a href="Login.php"> Log in </a> </p>
+<p class="note"> Already have an account? <a href="login.php"> Log in </a> </p>
 </body>
 </html>
