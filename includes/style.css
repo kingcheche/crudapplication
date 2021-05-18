@@ -346,10 +346,8 @@ input.descmessage::placeholder{
 .togglepwd{
    float:right;
    color:rgba(14, 74, 238, 0.7);
-   /* background-color:rgba(14, 74, 238, 0.3) ; */
+    background-color:rgba(14, 74, 238, 0.3) ;
    border-left: 1px solid;
-   /* border-left-color: rgba(14, 74, 238, 0.7);
-   border-left-width:1px solid; */
    padding:7px;
    width:40px;
    /* height: 32px; */
